@@ -1,8 +1,5 @@
-<a href="/">Anasayfa</a> -
-<a href="/kategori">Kategori</a> -
-<a href="/urun">Ürün</a> -
-<a href="/sepet">Sepet</a>
-<hr>
-<h1>Ürün</h1>
-<hr>
-Laravel Eticaret
+@extends('layouts.master')
+@section('title', 'Ürün')
+@section('content')
+    <h1>Ürün Sayfası</h1>
+@endsection
