@@ -1,0 +1,142 @@
+$theme-color1: #e52d04;
+
+#commerce {
+    background-color: #f0f0f0;
+
+    h2 {
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+
+    h4 {
+        font-size: 1.4rem;
+        margin-bottom: 5px;
+    }
+
+    .navbar-brand {
+        width: 270px;
+
+        img {
+            height: 30px;
+            margin-top: -6px;
+        }
+    }
+
+    .panel-theme {
+        border-color: #ddd;
+
+        .panel-heading {
+            color: #333;
+            font-weight: 600;
+            border-color: #ddd;
+            border-top: 2px solid $theme-color1;
+            background: linear-gradient(to bottom, #fff 0%, #dfdfdf 100%);
+        }
+    }
+
+    .panel-default {
+        h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 10px 5px 10px;
+        }
+    }
+
+    .badge-theme {
+        font-weight: 400;
+        background-color: $theme-color1;
+        margin-top: -15px;
+    }
+
+    .btn-theme {
+        background-color: $theme-color1;
+        color: #fff;
+        &:hover {
+            filter: contrast(90%);
+        }
+    }
+
+    #navbar-search {
+        width: 400px;
+    }
+
+    .carousel {
+        overflow: hidden;
+
+        .carousel-caption {
+            right: 0%;
+            left: 0;
+            height: 50px;
+            bottom: 0;
+            background: rgba(0, 0, 0, .3);
+        }
+
+        img {
+            height: 356px !important;
+        }
+    }
+
+    #sidebar-product {
+        height: 356px !important;
+    }
+
+    .list-group.categories {
+        font-size: 0.8rem;
+    }
+
+    .bg-content {
+      padding: 10px 15px;
+      background-color: #fff;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    }
+
+    .products {
+
+        .product {
+            text-align: center;
+
+            img {
+                height: 200px;
+                border-radius: 4px;
+                margin-bottom: 5px;
+                max-width: 100%;
+            }
+
+            .price {
+                font-size: 20px;
+                font-weight: 600;
+            }
+        }
+    }
+    .nav-tabs {
+        padding-left: 6px;
+        li.active a {
+            font-weight: 600;
+            border-bottom: inherit;
+			margin-top: 1px;
+            border-top: 2px solid $theme-color1;
+            background: linear-gradient(to top, #fff 0%, #dfdfdf 100%);
+        }
+    }
+    .tab-content {
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-top: -1px;
+    }
+
+    .price {
+        font-size: 24px;
+        font-weight: 600;
+        small { font-size: 14px; }
+    }
+
+    footer {
+        background-color: #fff;
+        padding: 50px;
+    }
+}
