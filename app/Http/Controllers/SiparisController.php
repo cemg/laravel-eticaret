@@ -10,4 +10,9 @@ class SiparisController extends Controller
     {
         return view('siparisler');
     }
+    
+    public function detay($id)
+    {
+        return view('siparis');
+    }
 }
