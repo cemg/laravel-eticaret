@@ -6,4 +6,4 @@ Route::get('/kategori/{slug_kategoriadi}', 'KategoriController@index')->name('ka
 
 Route::get('/urun/{slug_urunadi}', 'UrunController@index')->name('urun');
 
-Route::view('/sepet', 'sepet');
+Route::get('/sepet', 'SepetController@index')->name('sepet');
