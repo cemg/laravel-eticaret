@@ -1,4 +1,25 @@
 $theme-color1: #e52d04;
+html {
+  font-size: 16px;
+}
+
+:focus {
+  outline: none;
+}
+
+body {
+  font-family: Raleway, 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+a {
+  color: #333;
+}
 
 #commerce {
     background-color: #f0f0f0;
@@ -118,7 +139,7 @@ $theme-color1: #e52d04;
         li.active a {
             font-weight: 600;
             border-bottom: inherit;
-			margin-top: 1px;
+			margin-top: 3px;
             border-top: 2px solid $theme-color1;
             background: linear-gradient(to top, #fff 0%, #dfdfdf 100%);
         }
@@ -138,5 +159,6 @@ $theme-color1: #e52d04;
     footer {
         background-color: #fff;
         padding: 50px;
+        margin-top: 20px;
     }
 }

@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="img/logo.png">
+                <img src="/img/logo.png">
             </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
