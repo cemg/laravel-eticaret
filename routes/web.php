@@ -9,3 +9,5 @@ Route::get('/urun/{slug_urunadi}', 'UrunController@index')->name('urun');
 Route::get('/sepet', 'SepetController@index')->name('sepet');
 
 Route::get('/odeme', 'OdemeController@index')->name('odeme');
+
+Route::get('/siparisler', 'SiparisController@index')->name('siparisler');
