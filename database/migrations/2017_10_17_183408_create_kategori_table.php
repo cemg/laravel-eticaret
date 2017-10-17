@@ -17,7 +17,8 @@ class CreateKategoriTable extends Migration
             $table->increments('id');
             $table->string('kategori_adi', 30);
             $table->string('slug', 40);
-            $table->timestamps();
+            $table->timestamp('olusturulma_tarihi')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('guncelleme_tarihi')->default(DB::raw('CURRENT_TIMESTAMP on UPDATE CURRENT_TIMESTAMP'));
         });
     }
 
