@@ -89,20 +89,20 @@ a {
         overflow: hidden;
 
         .carousel-caption {
-            right: 0%;
+            right: 0;
             left: 0;
-            height: 50px;
+            height: 54px;
             bottom: 0;
             background: rgba(0, 0, 0, .3);
         }
 
         img {
-            height: 356px !important;
+            height: 374px !important;
         }
     }
 
     #sidebar-product {
-        height: 356px !important;
+        height: 374px !important;
     }
 
     .list-group.categories {
