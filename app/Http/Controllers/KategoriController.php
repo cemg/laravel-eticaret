@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Kategori;
 
 class KategoriController extends Controller
@@ -11,6 +10,7 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::where('slug', $slug_kategoriadi)->firstOrFail();
         $alt_kategoriler = Kategori::where('ust_id', $kategori->id)->get();
-        return view('kategori', compact('kategori', 'alt_kategoriler'));
+        $urunler = $kategori->urunler;
+        return view('kategori', compact('kategori', 'alt_kategoriler', 'urunler'));
     }
 }
