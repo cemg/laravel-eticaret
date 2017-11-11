@@ -48,7 +48,7 @@
                             </div>
                         @endforeach
                     </div>
-                    {{ $urunler->links() }}
+                    {{ request()->has('order') ? $urunler->appends(['order' => request('order')])->links() : $urunler->links() }}
                 </div>
             </div>
         </div>
