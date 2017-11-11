@@ -29,6 +29,7 @@
                     </div>
                 @endforeach
             </div>
+            {{ $urunler->appends(['aranan' => old('aranan')])->links() }}
         </div>
 
     </div>
