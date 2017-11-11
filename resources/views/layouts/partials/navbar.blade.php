@@ -13,14 +13,15 @@
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left">
+            <form class="navbar-form navbar-left" action="{{ route('urun_ara') }}" method="post">
+                {{ csrf_field() }}
                 <div class="input-group">
-                    <input type="text" id="navbar-search" class="form-control" placeholder="Ara">
+                    <input type="text" name="aranan" id="navbar-search" class="form-control" placeholder="Ara" value="{{ old('aranan') }}">
                     <span class="input-group-btn">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </span>
+                        <button type="submit" class="btn btn-default">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
