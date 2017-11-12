@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\KullaniciKayitMail;
 use App\Models\Kullanici;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class KullaniciController extends Controller
@@ -33,6 +35,8 @@ class KullaniciController extends Controller
             'aktivasyon_anahtari' => Str::random(60),
             'aktif_mi'            => 0
         ]);
+        
+        Mail::to(request('email'))->send(new KullaniciKayitMail($kullanici));
         
         auth()->login($kullanici);
         

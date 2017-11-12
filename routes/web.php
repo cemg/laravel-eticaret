@@ -22,3 +22,8 @@ Route::group(['prefix'=> 'kullanici'], function() {
     Route::get('/kaydol', 'KullaniciController@kaydol_form')->name('kullanici.kaydol');
     Route::post('/kaydol', 'KullaniciController@kaydol');
 });
+
+Route::get('/test/mail', function() {
+    $kullanici = \App\Models\Kullanici::find(1);
+    return new App\Mail\KullaniciKayitMail($kullanici);
+});
