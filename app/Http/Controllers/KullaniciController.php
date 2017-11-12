@@ -15,6 +15,24 @@ class KullaniciController extends Controller
         return view('kullanici.oturumac');
     }
     
+    public function giris()
+    {
+        $this->validate(request(), [
+            'email' => 'required|email',
+            'sifre' => 'required'
+        ]);
+        
+        if (auth()->attempt(['email' => request('email'), 'password' => request('sifre')], request()->has('benihatirla'))) {
+            request()->session()->regenerate();
+            
+            return redirect()->intended('/');
+        } else {
+            $errors = ['email' => 'Hatalı giriş'];
+            
+            return back()->withErrors($errors);
+        }
+    }
+    
     public function kaydol_form()
     {
         return view('kullanici.kaydol');
@@ -24,8 +42,8 @@ class KullaniciController extends Controller
     {
         $this->validate(request(), [
             'adsoyad' => 'required|min:5|max:60',
-            'email' => 'required|email|unique:kullanici',
-            'sifre' => 'required|confirmed|min:5|max:15'
+            'email'   => 'required|email|unique:kullanici',
+            'sifre'   => 'required|confirmed|min:5|max:15'
         ]);
         
         $kullanici = Kullanici::create([
@@ -46,16 +64,15 @@ class KullaniciController extends Controller
     public function aktiflestir($anahtar)
     {
         $kullanici = Kullanici::where('aktivasyon_anahtari', $anahtar)->first();
-        if (!is_null($kullanici))
-        {
+        if (!is_null($kullanici)) {
             $kullanici->aktivasyon_anahtari = null;
             $kullanici->aktif_mi = 1;
             $kullanici->save();
+            
             return redirect()->to('/')
                 ->with('mesaj', 'Kullanıcı kaydınız aktifleştirildi')
                 ->with('mesaj_tur', 'success');
-        }
-        else {
+        } else {
             return redirect()->to('/')
                 ->with('mesaj', 'Kullanıcı kaydınız aktifleştirilemedi')
                 ->with('mesaj_tur', 'warning');
