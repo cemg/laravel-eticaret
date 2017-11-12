@@ -12,15 +12,10 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('kullanici.kaydol') }}">
                             {{ csrf_field() }}
-                            <div class="form-group {{ $errors->has('adsoyad') ? 'has-error': '' }}">
+                            <div class="form-group">
                                 <label for="adsoyad" class="col-md-4 control-label">Ad Soyad</label>
                                 <div class="col-md-6">
                                     <input id="adsoyad" type="text" class="form-control" name="adsoyad" value="{{ old('adsoyad') }}" required autofocus>
-                                    @if ($errors->has('adsoyad'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('adsoyad') }}</strong>
-                                        </span>
-                                    @endif
                                 </div>
                             </div>
 
