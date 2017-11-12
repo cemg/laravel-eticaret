@@ -1,6 +1,9 @@
 @extends('layouts.master')
 @section('title', 'Anasayfa')
 @section('content')
+
+    @include('layouts.partials.alert')
+
     <div class="container">
         <div class="row">
             <div class="col-md-3">

@@ -6,3 +6,7 @@
  */
 
 require('./bootstrap');
+
+setTimeout(function() {
+    $('.alert').slideUp(500);
+}, 5000);

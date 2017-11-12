@@ -762,6 +762,10 @@ module.exports = __webpack_require__(35);
 
 __webpack_require__(9);
 
+setTimeout(function () {
+  $('.alert').slideUp(500);
+}, 5000);
+
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
