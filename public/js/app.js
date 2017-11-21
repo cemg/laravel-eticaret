@@ -753,7 +753,6 @@ module.exports = __webpack_require__(35);
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-
 /**
  * First, we will load all of this project's Javascript utilities and other
  * dependencies. Then, we will be ready to develop a robust and powerful
@@ -763,8 +762,14 @@ module.exports = __webpack_require__(35);
 __webpack_require__(9);
 
 setTimeout(function () {
-  $('.alert').slideUp(500);
+    $('.alert').slideUp(500);
 }, 5000);
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
 /***/ }),
 /* 9 */
