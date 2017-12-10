@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\KullaniciKayitMail;
 use App\Models\Kullanici;
+use App\Models\KullaniciDetay;
 use App\Models\Sepet;
 use App\Models\SepetUrun;
 use Cart;
@@ -33,7 +34,11 @@ class KullaniciController extends Controller
         if (auth()->attempt(['email' => request('email'), 'password' => request('sifre')], request()->has('benihatirla'))) {
             request()->session()->regenerate();
             
-            $aktif_sepet_id = Sepet::firstOrCreate(['kullanici_id' => auth()->id()])->id;
+            $aktif_sepet_id = Sepet::aktif_sepet_id();
+            if (is_null($aktif_sepet_id)) {
+                $aktif_sepet = Sepet::create(['kullanici_id' => auth()->id()]);
+                $aktif_sepet_id = $aktif_sepet->id;
+            }
             session()->put('aktif_sepet_id', $aktif_sepet_id);
             
             if (Cart::count() > 0) {
@@ -79,6 +84,7 @@ class KullaniciController extends Controller
             'aktivasyon_anahtari' => Str::random(60),
             'aktif_mi'            => 0
         ]);
+        $kullanici->detay()->save(new KullaniciDetay());
         
         Mail::to(request('email'))->send(new KullaniciKayitMail($kullanici));
         
