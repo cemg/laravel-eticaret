@@ -16,6 +16,14 @@ Route::group(['prefix' => 'yonetim', 'namespace' => 'Yonetim'], function () {
             Route::get('/sil/{id}', 'KullaniciController@sil')->name('yonetim.kullanici.sil');
         });
     
+        Route::group(['prefix' => 'kategori'], function () {
+            Route::match(['get', 'post'], '/', 'KategoriController@index')->name('yonetim.kategori');
+            Route::get('/yeni', 'KategoriController@form')->name('yonetim.kategori.yeni');
+            Route::get('/duzenle/{id}', 'KategoriController@form')->name('yonetim.kategori.duzenle');
+            Route::post('/kaydet/{id?}', 'KategoriController@kaydet')->name('yonetim.kategori.kaydet');
+            Route::get('/sil/{id}', 'KategoriController@sil')->name('yonetim.kategori.sil');
+        });
+    
     });
 });
 

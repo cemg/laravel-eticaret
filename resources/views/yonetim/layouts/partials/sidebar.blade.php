@@ -6,7 +6,7 @@
         <span class="fa fa-fw fa-cubes"></span> Ürünler
         <span class="badge badge-dark badge-pill pull-right">14</span>
     </a>
-    <a href="#" class="list-group-item">
+    <a href="{{ route('yonetim.kategori') }}" class="list-group-item">
         <span class="fa fa-fw fa-folder"></span> Kategoriler
         <span class="badge badge-dark badge-pill pull-right">14</span>
     </a>
