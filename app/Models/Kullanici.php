@@ -12,7 +12,7 @@ class Kullanici extends Authenticatable
     
     protected $table = "kullanici";
     
-    protected $fillable = ['adsoyad', 'email', 'sifre', 'aktivasyon_anahtari', 'aktif_mi'];
+    protected $fillable = ['adsoyad', 'email', 'sifre', 'aktivasyon_anahtari', 'aktif_mi', 'yonetici_mi'];
     protected $hidden = ['sifre', 'aktivasyon_anahtari'];
     
     const CREATED_AT = 'olusturma_tarihi';

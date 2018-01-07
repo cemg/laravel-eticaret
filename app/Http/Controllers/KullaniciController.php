@@ -31,7 +31,12 @@ class KullaniciController extends Controller
             'sifre' => 'required'
         ]);
         
-        if (auth()->attempt(['email' => request('email'), 'password' => request('sifre')], request()->has('benihatirla'))) {
+        $credentials = [
+            'email'    => request('email'),
+            'password' => request('sifre'),
+            'aktif_mi' => 1
+        ];
+        if (auth()->attempt($credentials, request()->has('benihatirla'))) {
             request()->session()->regenerate();
             
             $aktif_sepet_id = Sepet::aktif_sepet_id();
@@ -43,17 +48,18 @@ class KullaniciController extends Controller
             
             if (Cart::count() > 0) {
                 foreach (Cart::content() as $cartItem) {
-                    SepetUrun::updateOrCreate(
-                        ['sepet_id' => $aktif_sepet_id, 'urun_id' => $cartItem->id],
-                        ['adet' => $cartItem->qty, 'fiyati' => $cartItem->price, 'durum' => 'Beklemede']
-                    );
+                    $sepetUrun = SepetUrun::firstOrNew(['sepet_id' => $aktif_sepet_id, 'urun_id' => $cartItem->id]);
+                    $sepetUrun->adet += $cartItem->qty;
+                    $sepetUrun->fiyati = $cartItem->price;
+                    $sepetUrun->durum = "Beklemede";
+                    $sepetUrun->save();
                 }
             }
             
             Cart::destroy();
-            $sepetUrunler = SepetUrun::where('sepet_id', $aktif_sepet_id)->get();
+            $sepetUrunler = SepetUrun::with('urun')->where('sepet_id', $aktif_sepet_id)->get();
             foreach ($sepetUrunler as $sepetUrun) {
-                Cart::add($sepetUrun->urun->id, $sepetUrun->urun->urun_adi, $sepetUrun->adet, $sepetUrun->fiyati, ['slug'=> $sepetUrun->urun->slug]);
+                Cart::add($sepetUrun->urun->id, $sepetUrun->urun->urun_adi, $sepetUrun->adet, $sepetUrun->fiyati, ['slug' => $sepetUrun->urun->slug]);
             }
             
             return redirect()->intended('/');

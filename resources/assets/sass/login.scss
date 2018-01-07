@@ -1,0 +1,73 @@
+html {
+  height: 100%;
+}
+
+body {
+  padding-top: 50px;
+  padding-bottom: 40px;
+  background: #ffffff;
+  background: radial-gradient(ellipse at center, #ffffff 0%, #c1c1c1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#c1c1c1', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 14px;
+  margin: 0 auto;
+  background-color: rgba(230, 230, 230, 0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  border: 1px solid #ddd;
+
+  img {
+    display: block; margin: 0 auto 14px;
+    border-radius: 6px;
+  }
+
+  .links {
+    margin-top: 10px;
+    a {
+      color: #444;
+    }
+  }
+
+  .checkbox {
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 12px;
+  }
+
+  .form-control {
+    position: relative;
+    height: auto;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+    &:focus {
+      z-index: 2;
+    }
+  }
+
+  input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .btn-primary {
+    background-color: #f4645f;
+    border-color: #f4645f;
+    &:hover {
+      background-color: #e74430 !important;
+      border-color: #e74430 !important;
+      color: #fff !important;
+    }
+  }
+}
