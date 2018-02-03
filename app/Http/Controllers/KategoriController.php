@@ -10,6 +10,7 @@ class KategoriController extends Controller
     {
         $kategori = Kategori::where('slug', $slug_kategoriadi)->firstOrFail();
         $alt_kategoriler = Kategori::where('ust_id', $kategori->id)->get();
+        $ust_kategori = Kategori::find($kategori->ust_id);
         
         $order = request('order');
         if ($order == 'coksatanlar') {
@@ -18,17 +19,23 @@ class KategoriController extends Controller
                 ->distinct()
                 ->join('urun_detay', 'urun_detay.urun_id', 'urun.id')
                 ->orderBy('urun_detay.goster_cok_satan', 'desc')
-                ->paginate(2);
+                ->paginate(3);
             
         } else if ($order == 'yeni') {
             $urunler = $kategori->urunler()
                 ->distinct()
                 ->orderByDesc('guncelleme_tarihi')
-                ->paginate(2);
+                ->paginate(3);
         } else {
-            $urunler = $kategori->urunler()->paginate(2);
+            $urunler = $kategori->urunler()
+                ->distinct()
+                ->orderByDesc('guncelleme_tarihi')
+                ->paginate(3);
         }
         
-        return view('kategori', compact('kategori', 'alt_kategoriler', 'urunler'));
+        if (request('page') > $urunler->lastPage())
+            return redirect()->route('kategori', $kategori->slug);
+        
+        return view('kategori', compact('kategori', 'alt_kategoriler', 'ust_kategori', 'urunler'));
     }
 }

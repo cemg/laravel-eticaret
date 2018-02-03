@@ -22,7 +22,14 @@
                             @endforeach
                         </div>
                         @else
-                            Bu kategoride başka alt kategori bulunmamaktadır.
+                            @if ($ust_kategori != null)
+                                <a href="{{ route('kategori', $ust_kategori->slug) }}" class="btn btn-xs btn-block btn-primary">
+                                    <i class="fa fa-arrow-circle-left"></i>
+                                    {{ $ust_kategori->kategori_adi }}
+                                </a>
+                            @endif
+
+                            {{ $kategori->kategori_adi }} kategorisinde başka alt kategori bulunmuyor.
                         @endif
                     </div>
                 </div>
