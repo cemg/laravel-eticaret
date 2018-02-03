@@ -13,7 +13,8 @@ class SiparisController extends Controller
             ->whereHas('sepet', function($query) {
                 $query->where('kullanici_id', auth()->id());
             })
-            ->orderByDesc('olusturma_tarihi')->get();
+            ->orderByDesc('olusturma_tarihi')
+            ->get();
         
         return view('siparisler', compact('siparisler'));
     }
@@ -26,6 +27,7 @@ class SiparisController extends Controller
             })
             ->where('siparis.id', $id)
             ->firstOrFail();
+        
         return view('siparis', compact('siparis'));
     }
 }
