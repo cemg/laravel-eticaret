@@ -25,7 +25,7 @@
                     <select name="ust_id" id="ust_id" class="form-control">
                         <option value="">Ana Kategori</option>
                         @foreach($kategoriler as $kategori)
-                        <option value="{{ $kategori->id }}">{{ $kategori->kategori_adi }}</option>
+                        <option value="{{ $kategori->id }}" {{ $kategori->id == old('ust_id', $entry->ust_id) ? 'selected' : '' }}>{{ $kategori->kategori_adi }}</option>
                         @endforeach
                     </select>
                 </div>

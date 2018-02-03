@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <ol class="breadcrumb">
-            <li><a href="#">Anasayfa</a></li>
+            <li><a href="{{ route('anasayfa') }}">Anasayfa</a></li>
             @foreach($kategoriler as $kategori)
             <li><a href="{{ route('kategori', $kategori->slug) }}">{{ $kategori->kategori_adi }}</a></li>
             @endforeach
@@ -12,7 +12,7 @@
         <div class="bg-content">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="http://via.placeholder.com/400x200?text=UrunResmi">
+                    <img src="{{ $urun->detay->urun_resmi!=null ? asset('uploads/urunler/' . $urun->detay->urun_resmi) : 'http://via.placeholder.com/300x300?text=UrunResmi' }}" class="img-responsive">
                     <hr>
                     <div class="row">
                         <div class="col-xs-3">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="col-md-7">
                     <h1>{{ $urun->urun_adi }}</h1>
-                    <p class="price">{{ $urun->fiyati }} ₺</p>
+                    <p class="price">{{ round($urun->fiyati, 2) }} ₺</p>
                     <form action="{{ route('sepet.ekle') }}" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{ $urun->id }}">

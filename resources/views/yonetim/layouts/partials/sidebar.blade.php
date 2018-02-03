@@ -2,7 +2,7 @@
     <a href="{{ route('yonetim.anasayfa') }}" class="list-group-item">
         <span class="fa fa-fw fa-dashboard"></span> Kontrol Paneli
     </a>
-    <a href="#" class="list-group-item">
+    <a href="{{ route('yonetim.urun') }}" class="list-group-item">
         <span class="fa fa-fw fa-cubes"></span> Ürünler
         <span class="badge badge-dark badge-pill pull-right">14</span>
     </a>
