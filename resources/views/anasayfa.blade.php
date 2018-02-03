@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Anasayfa')
+@section('title', config('app.name'))
 @section('content')
 
     <div class="container">
