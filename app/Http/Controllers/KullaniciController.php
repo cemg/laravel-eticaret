@@ -37,8 +37,6 @@ class KullaniciController extends Controller
             'aktif_mi' => 1
         ];
         if (auth()->attempt($credentials, request()->has('benihatirla'))) {
-            request()->session()->regenerate();
-            
             $aktif_sepet_id = Sepet::aktif_sepet_id();
             if (is_null($aktif_sepet_id)) {
                 $aktif_sepet = Sepet::create(['kullanici_id' => auth()->id()]);
@@ -120,8 +118,6 @@ class KullaniciController extends Controller
     public function oturumukapat()
     {
         auth()->logout();
-        request()->session()->flush();
-        request()->session()->regenerate();
         
         return redirect()->route('anasayfa');
     }
