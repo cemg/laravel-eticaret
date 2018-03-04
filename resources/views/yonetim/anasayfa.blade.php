@@ -8,7 +8,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Bekleyen Sipariş</div>
                 <div class="panel-body">
-                    <h4>123</h4>
+                    <h4>{{ $istatistikler['bekleyen_siparis'] }}</h4>
                     <p>adet</p>
                 </div>
             </div>
