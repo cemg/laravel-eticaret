@@ -17,8 +17,8 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Tamamlanan Sipariş</div>
                 <div class="panel-body">
-                    <h4>123</h4>
-                    <p>Data</p>
+                    <h4>{{ $istatistikler['tamamlanan_siparis'] }}</h4>
+                    <p>adet</p>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Ürün</div>
                 <div class="panel-body">
-                    <h4>123</h4>
+                    <h4>{{ $istatistikler['toplam_urun'] }}</h4>
                     <p>adet</p>
                 </div>
             </div>
@@ -35,10 +35,12 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Kullanıcı</div>
                 <div class="panel-body">
-                    <h4>123</h4>
+                    <h4>{{ $istatistikler['toplam_kullanici'] }}</h4>
                     <p>kişi</p>
                 </div>
             </div>
         </div>
     </section>
+
+
 @endsection
