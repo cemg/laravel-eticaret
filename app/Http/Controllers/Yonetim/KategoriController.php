@@ -70,6 +70,14 @@ class KategoriController extends Controller
     public function sil($id)
     {
         $kategori = Kategori::find($id);
+        $kategori_urun_adet = $kategori->urunler()->count();
+        if ($kategori_urun_adet>0)
+        {
+            return redirect()
+                ->route('yonetim.kategori')
+                ->with('mesaj', "Bu kategoride $kategori_urun_adet adet ürün var. Bu yüzden silme işlemi yapılmamıştır.")
+                ->with('mesaj_tur', 'warning');    
+        }
         $kategori->urunler()->detach();
         $kategori->delete();
         
