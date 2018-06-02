@@ -31,6 +31,11 @@
                     <p class="price">{{ round($urun->fiyati, 2) }} ₺</p>
                     <form action="{{ route('sepet.ekle') }}" method="post">
                         {{ csrf_field() }}
+												<select name="adet" class="form-control pull-left" style="width: 100px; margin-right: 10px;">
+													<option>1</option>
+													<option>2</option>
+													<option>3</option>
+												</select>
                         <input type="hidden" name="id" value="{{ $urun->id }}">
                         <input type="submit" class="btn btn-theme" value="Sepete Ekle">
                     </form>

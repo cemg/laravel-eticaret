@@ -17,8 +17,9 @@ class SepetController extends Controller
     
     public function ekle()
     {
+				$adet = request('adet');
         $urun = Urun::find(request('id'));
-        $cartItem = Cart::add($urun->id, $urun->urun_adi, 1, $urun->fiyati, ['slug' => $urun->slug]);
+        $cartItem = Cart::add($urun->id, $urun->urun_adi, $adet, $urun->fiyati, ['slug' => $urun->slug]);
         
         if (auth()->check()) {
             $aktif_sepet_id = session('aktif_sepet_id');
