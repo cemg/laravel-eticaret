@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Yonetim;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Models\Siparis;
 
 class AnasayfaController extends Controller
 {
@@ -18,6 +19,14 @@ class AnasayfaController extends Controller
             GROUP BY u.urun_adi
             ORDER BY SUM(su.adet) DESC
         ");
+
+        /*$cok_satan_urunler = Siparis::select(DB::raw('urun.urun_adi, SUM(sepet_urun.adet) as adet'))
+            ->join('sepet', 'sepet.id', 'siparis.sepet_id')
+            ->join('sepet_urun', 'sepet.id', 'sepet_urun.sepet_id')
+            ->join('urun', 'urun.id', 'sepet_urun.urun_id')
+            ->groupBy('urun_adi')
+            ->orderBy(DB::raw('SUM(sepet_urun.adet)'), 'desc')
+            ->get();*/
         
         $aylara_gore_satislar = DB::select("
             SELECT
