@@ -98,12 +98,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 @endsection
 @section('footer')
+    <script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.9.2/plugins/autogrow/plugin.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <script>
         $(function () {
             $('#kategoriler').select2({
                 placeholder: 'Lütfen kategori seçiniz'
             });
+
+            var options = {
+                uiColor: '#f4645f',
+                language: 'tr',
+                extraPlugins: 'autogrow',
+                autoGrow_minHeight: 250,
+                autoGrow_maxHeight: 600,
+                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+            };
+            CKEDITOR.replace('aciklama', options);
         });
     </script>
 @endsection
