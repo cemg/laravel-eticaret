@@ -38,8 +38,6 @@ class KullaniciController extends Controller
     public function oturumukapat()
     {
         Auth::guard('yonetim')->logout();
-        request()->session()->flush();
-        request()->session()->regenerate();
         
         return redirect()->route('yonetim.oturumac');
     }
