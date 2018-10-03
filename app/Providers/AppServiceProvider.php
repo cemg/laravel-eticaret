@@ -5,10 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Config;
 use App\Models\Siparis;
 use App\Models\Urun;
 use App\Models\Kategori;
 use App\Models\Kullanici;
+use App\Models\Ayar;
 use Illuminate\Support\Facades\Cache;
 
 class AppServiceProvider extends ServiceProvider
@@ -44,6 +46,10 @@ class AppServiceProvider extends ServiceProvider
             
             $view->with('istatistikler', $istatistikler);
         });
+        
+        foreach(Ayar::all() as $ayar) {
+            Config::set('ayar.' . $ayar->anahtar, $ayar->deger);
+        }
     }
 
     /**
