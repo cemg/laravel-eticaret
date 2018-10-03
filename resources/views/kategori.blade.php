@@ -11,6 +11,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">{{ $kategori->kategori_adi }}</div>
                     <div class="panel-body">
+						Toplam {{ $kategori->urunler->count() }} ürün var.
+						<hr>
                         @if (count($alt_kategoriler)>0)
                         <h3>Alt Kategoriler</h3>
                         <div class="list-group categories">

@@ -16,19 +16,16 @@ class KategoriController extends Controller
         if ($order == 'coksatanlar') {
             
             $urunler = $kategori->urunler()
-                ->distinct()
                 ->join('urun_detay', 'urun_detay.urun_id', 'urun.id')
                 ->orderBy('urun_detay.goster_cok_satan', 'desc')
                 ->paginate(3);
             
         } else if ($order == 'yeni') {
             $urunler = $kategori->urunler()
-                ->distinct()
                 ->orderByDesc('guncelleme_tarihi')
                 ->paginate(3);
         } else {
             $urunler = $kategori->urunler()
-                ->distinct()
                 ->orderByDesc('guncelleme_tarihi')
                 ->paginate(3);
         }
