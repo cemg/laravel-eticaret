@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kategori;
 use App\Models\Urun;
 use App\Models\UrunDetay;
+use File;
 
 class UrunController extends Controller
 {
@@ -82,6 +83,8 @@ class UrunController extends Controller
             //$dosyaadi = $urun_resmi->hashName();
             
             if ($urun_resmi->isValid()) {
+                File::delete('uploads/urunler/' . $entry->detay->urun_resmi);
+                
                 $urun_resmi->move('uploads/urunler', $dosyaadi);
                 
                 UrunDetay::updateOrCreate(
