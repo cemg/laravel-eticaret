@@ -14,14 +14,7 @@
 						Toplam {{ $kategori->urunler->count() }} ürün var.
 						<hr>
                         @if (count($alt_kategoriler)>0)
-                        <h3>Alt Kategoriler</h3>
-                        <div class="list-group categories">
-                            @foreach($alt_kategoriler as $alt_kategori)
-                            <a href="{{ route('kategori', $alt_kategori->slug) }}" class="list-group-item">
-                                <i class="fa fa-arrow-circle-right"></i>
-                                {{ $alt_kategori->kategori_adi }}
-                            </a>
-                            @endforeach
+                        
                         </div>
                         @else
                             @if ($ust_kategori != null)
