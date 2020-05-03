@@ -103,8 +103,12 @@ class UrunController extends Controller
     public function sil($id)
     {
         $urun = Urun::find($id);
+        
+        File::delete('uploads/urunler/' . $urun->detay->urun_resmi);
+
         $urun->kategoriler()->detach();
         //$urun->detay()->delete();
+        
         $urun->delete();
         
         return redirect()
