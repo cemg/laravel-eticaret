@@ -19,7 +19,7 @@ Proje hakkında...
 12. Ürün Yönetimi
 
 ## Links (Bağlantılar) 
-- [Udemy Course Page](http://www.udemy.com/laravel-ile-sifirdan-eticaret-projesi)
+- [Udemy İndirimli Kayıt Sayfası](https://link.uzaktankurs.com/LARAVEL_ETICARET)
 
 ## Contributing (Katkıda Bulunma)
 
