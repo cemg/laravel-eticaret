@@ -33,10 +33,6 @@ Bu proje Udemy üzerinde hazırlamış olduğum eğitime ait kaynak kodları iç
 
 Bu proje kurs kapsamında oluşturulmuştur. Kurs içeriği dışında isterseniz projemize katkıda bulunabilirsiniz.
 
-## İletişim
-
-Proje içerisinde yer alan kodlamalarla ilgili görüş ve önerilerinizi cmg.web@gmail.com adresinden bana iletebilirsiniz. 
-
 ## Lisans
 
 Project files are open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
